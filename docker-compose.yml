@@ -1,0 +1,8 @@
+services:
+  nachweismat:
+    build: .
+    image: nachweismat
+    container_name: nachweismat
+    ports:
+      - "8080:80"
+    restart: unless-stopped

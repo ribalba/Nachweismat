@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stundennachweis-Generator</title>
+  <meta name="description" content="Erstelle in Sekunden professionelle Stundennachweise als Excel – mit Feiertagen aller Bundesländer und Krankheitstagen." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <h1>Stundennachweis-Generator</h1>
+      <p class="tagline">
+        Schluss mit der lästigen Zettelwirtschaft! Erstelle in
+        <strong>wenigen Sekunden</strong> realistische, professionelle
+        Stundennachweise für jeden Monat – mit
+        <strong>vollen Stunden, natürlicher Schwankung</strong>,
+        gesetzlichen <strong>Feiertagen deines Bundeslandes</strong> und
+        berücksichtigten <strong>Krankheitstagen</strong>. Ein Klick, und
+        alles liegt als saubere <strong>Excel-Datei</strong> zum Download bereit.
+      </p>
+    </div>
+  </header>
+
+  <main>
+    <form id="form" class="card">
+      <h2>Eingaben</h2>
+
+      <div class="grid">
+        <fieldset>
+          <legend>Zeitraum – Anfang</legend>
+          <label>Monat
+            <select id="startMonth"></select>
+          </label>
+          <label>Jahr
+            <input type="number" id="startYear" min="1990" max="2100" step="1" />
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Zeitraum – Ende</legend>
+          <label>Monat
+            <select id="endMonth"></select>
+          </label>
+          <label>Jahr
+            <input type="number" id="endYear" min="1990" max="2100" step="1" />
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Feiertage</legend>
+          <label>Bundesland
+            <select id="state"></select>
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Soll-Arbeitszeit</legend>
+          <label>Stunden
+            <input type="number" id="hoursValue" min="1" step="1" value="40" />
+          </label>
+          <label>pro
+            <select id="hoursMode">
+              <option value="week">Woche</option>
+              <option value="month">Monat</option>
+            </select>
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Tageslimit</legend>
+          <label>Max. Stunden pro Tag
+            <input type="number" id="maxPerDay" min="1" max="24" step="1" value="10" />
+          </label>
+        </fieldset>
+
+        <fieldset class="full-width">
+          <legend>Krankheitstage</legend>
+          <label>Konkrete Tage eintragen
+            <input type="text" id="sickDates" placeholder="z. B. 15.01.2025, 03.02.2025, 04.02.2025" />
+          </label>
+          <small class="field-hint">
+            Mehrere Tage mit Komma trennen. Format: <strong>TT.MM.JJJJ</strong>
+            (oder JJJJ-MM-TT). Wochenenden/Feiertage werden ignoriert.
+          </small>
+        </fieldset>
+      </div>
+
+      <p id="error" class="error"></p>
+
+      <div class="actions">
+        <button type="submit" class="btn-primary">Stundennachweis erstellen</button>
+        <button type="button" id="download" class="btn-secondary" disabled>
+          Als Excel herunterladen
+        </button>
+      </div>
+    </form>
+
+    <section id="results" class="results hidden">
+      <h2>Vorschau</h2>
+      <p class="hint">
+        Tipp: Klicke erneut auf „Stundennachweis erstellen“, um eine andere
+        zufällige Stundenverteilung zu erzeugen.
+      </p>
+      <div id="preview"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Feiertagsangaben ohne Gewähr. Erstellt für deine eigene Dokumentation.</p>
+    <p><a href="impressum.html">Impressum</a></p>
+  </footer>
+
+  <!-- SheetJS: wird im Docker-Build lokal eingebunden, sonst von CDN nachgeladen -->
+  <script src="vendor/xlsx.full.min.js"></script>
+  <script src="js/holidays.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

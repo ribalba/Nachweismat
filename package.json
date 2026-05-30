@@ -1,0 +1,13 @@
+{
+  "name": "stundennachweis-generator",
+  "version": "1.0.0",
+  "description": "Generator für monatliche Stundennachweise mit Excel-Export, Feiertagen aller Bundesländer und Krankheitstagen.",
+  "private": true,
+  "scripts": {
+    "setup": "cp node_modules/xlsx/dist/xlsx.full.min.js vendor/xlsx.full.min.js",
+    "start": "npx --yes serve -l 8080 ."
+  },
+  "dependencies": {
+    "xlsx": "0.18.5"
+  }
+}
