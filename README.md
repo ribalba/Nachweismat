@@ -11,6 +11,9 @@ erzeugt und als **Excel-Datei (.xlsx)** zum Download bereitstellt.
 - **Soll-Arbeitszeit** wahlweise pro Woche oder pro Monat
 - **Krankheitstage** werden zufällig über den Zeitraum verteilt und als
   „Krank“ ausgewiesen
+- **Urlaub** wahlweise als konkrete Zeiträume (z. B. `15.07.2025 - 26.07.2025`)
+  oder als feste Anzahl Tage pro Monat; bei hinterlegtem **Urlaubsanspruch**
+  wird der verbleibende Resturlaub automatisch berechnet
 - **Realistische Stunden**: volle Stunden mit natürlicher Schwankung
   (nicht jeden Tag exakt 8 Stunden)
 - **Excel-Export**: ein Tabellenblatt pro Monat plus Übersichtsblatt

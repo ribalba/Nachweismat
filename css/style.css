@@ -11,6 +11,7 @@
   --weekend: #f8fafc;
   --holiday: #fef3c7;
   --sick: #fee2e2;
+  --vacation: #d1fae5;
 }
 
 * { box-sizing: border-box; }
@@ -132,6 +133,24 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
 
 .error { color: #dc2626; font-size: 0.9rem; min-height: 1.2em; margin: 0.75rem 0 0; }
 
+.hidden { display: none; }
+
+/* --- Urlaubs-Übersicht --- */
+.vacation-summary {
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  border-radius: 12px;
+  padding: 0.9rem 1.1rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.5rem;
+  font-size: 0.9rem;
+}
+.vacation-summary strong { color: var(--text); }
+.vacation-summary .vac-left { font-weight: 700; }
+.vacation-summary .vac-over { color: #b91c1c; }
+
 /* --- Ergebnisse --- */
 .results { margin-top: 2rem; }
 .results.hidden { display: none; }
@@ -200,6 +219,8 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
 .row-holiday { background: var(--holiday); }
 .row-sick { background: var(--sick); }
 .row-sick .cal-hours { color: #b91c1c; }
+.row-vacation { background: var(--vacation); }
+.row-vacation .cal-hours { color: #047857; }
 
 @media (max-width: 640px) {
   .cal-cell { min-height: 52px; padding: 3px; }

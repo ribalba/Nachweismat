@@ -85,6 +85,34 @@
             (oder JJJJ-MM-TT). Wochenenden/Feiertage werden ignoriert.
           </small>
         </fieldset>
+
+        <fieldset class="full-width">
+          <legend>Urlaub</legend>
+          <label>Eingabeart
+            <select id="vacationMode">
+              <option value="ranges">Konkrete Zeiträume / Tage</option>
+              <option value="perMonth">Tage pro Monat</option>
+            </select>
+          </label>
+
+          <label id="vacationRangesField">Zeiträume / Tage eintragen
+            <input type="text" id="vacationDates" placeholder="z. B. 15.07.2025 - 26.07.2025, 02.08.2025" />
+          </label>
+
+          <label id="vacationPerMonthField" class="hidden">Urlaubstage pro Monat
+            <input type="number" id="vacationPerMonth" min="0" max="31" step="1" value="2" />
+          </label>
+
+          <label>Urlaubsanspruch (Tage, optional)
+            <input type="number" id="vacationEntitlement" min="0" step="1" placeholder="z. B. 30" />
+          </label>
+
+          <small class="field-hint">
+            Zeiträume mit Bindestrich angeben (<strong>TT.MM.JJJJ - TT.MM.JJJJ</strong>),
+            mehrere Einträge mit Komma trennen. Wochenenden/Feiertage werden ignoriert.
+            Mit Urlaubsanspruch zeigt das Tool, wie viele Tage noch übrig sind.
+          </small>
+        </fieldset>
       </div>
 
       <p id="error" class="error"></p>
@@ -124,6 +152,6 @@
   <script src="vendor/xlsx.full.min.js"></script>
   <script src="js/holidays.js"></script>
   <script src="js/app.js"></script>
-  <script defer src="https://umami.sensationtech.com/script.js" data-website-id="175a73bf-bd6c-43d6-9095-d511f8a74845"></script>
+  <script defer src="https://umami.nachweismat.de/script.js" data-website-id="175a73bf-bd6c-43d6-9095-d511f8a74845"></script>
 </body>
 </html>
